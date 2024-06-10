@@ -6,8 +6,15 @@
     <description>Recent content on Amal Soman</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.amalsoman.com/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic of Kubernetes CNI</title>
+      <link>https://blog.amalsoman.com/posts/what-are-k8-cni/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/posts/what-are-k8-cni/</guid>
+      <description>Introduction Kubernetes, an open-source container orchestration platform, has revolutionized how applications are deployed and managed. One of the critical components that enable the seamless operation of Kubernetes is its networking model. This blog will take a deep dive into Kubernetes Container Network Interface (CNI) networking, exploring its architecture, components, and popular CNI plugins.&#xA;What is CNI? The Container Network Interface (CNI) is a specification and library for writing plugins that configure network interfaces in Linux containers.</description>
+    </item>
     <item>
       <title>Getting Started with Hugo</title>
       <link>https://blog.amalsoman.com/posts/hugoisforlovers/</link>
@@ -21,6 +28,13 @@
       <pubDate>Wed, 18 Jul 2018 00:00:00 +0000</pubDate>
       <guid>https://blog.amalsoman.com/posts/goisforlovers/</guid>
       <description>Hugo uses the excellent Go html/template library for its template engine. It is an extremely lightweight engine that provides a very small amount of logic. In our experience that it is just the right amount of logic to be able to create a good static website. If you have used other template systems from different languages or frameworks you will find a lot of similarities in Go templates.&#xA;This document is a brief primer on using Go templates.</description>
+    </item>
+    <item>
+      <title>TCPDUMP</title>
+      <link>https://blog.amalsoman.com/posts/what-is-tcpdump/</link>
+      <pubDate>Thu, 02 Nov 2017 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/posts/what-is-tcpdump/</guid>
+      <description>Introduction tcpdump is a powerful command-line packet analyzer tool that is used to capture and display the network traffic passing through a computer interface. It&amp;rsquo;s an invaluable tool for network administrators, security professionals, and developers for diagnosing network issues and analyzing security breaches.&#xA;In this blog post, we will explore the basics of tcpdump, its installation, key features, and some advanced usage scenarios.&#xA;Table of Contents Installation Basic Usage Filtering Packets Writing and Reading Files Advanced Usage Practical Examples Conclusion Installation On Linux Most Linux distributions include tcpdump in their package repositories.</description>
     </item>
     <item>
       <title>Creating a New Theme</title>
