@@ -3,7 +3,25 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://blog.amalsoman.com/</loc>
-    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/posts/what-are-k8-cni/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/cni/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/kubernetes/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/kubernetes-cni/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/posts/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/</loc>
+    <lastmod>2021-10-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.amalsoman.com/tags/configuration/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
@@ -26,12 +44,6 @@
     <loc>https://blog.amalsoman.com/tags/hugo/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://blog.amalsoman.com/posts/</loc>
-    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://blog.amalsoman.com/tags/</loc>
-    <lastmod>2020-04-02T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://blog.amalsoman.com/tags/tutorial/</loc>
     <lastmod>2020-04-02T00:00:00+00:00</lastmod>
   </url><url>
@@ -43,6 +55,21 @@
   </url><url>
     <loc>https://blog.amalsoman.com/tags/themes/</loc>
     <lastmod>2018-07-18T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/debugging/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/linnux/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/network/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/posts/what-is-tcpdump/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://blog.amalsoman.com/tags/troubleshooting/</loc>
+    <lastmod>2017-11-02T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://blog.amalsoman.com/posts/creating-a-new-theme/</loc>
     <lastmod>2017-09-28T00:00:00+00:00</lastmod>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on Amal Soman</title>
+    <link>https://blog.amalsoman.com/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on Amal Soman</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://blog.amalsoman.com/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Basic of Kubernetes CNI</title>
+      <link>https://blog.amalsoman.com/posts/what-are-k8-cni/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/posts/what-are-k8-cni/</guid>
+      <description>Introduction Kubernetes, an open-source container orchestration platform, has revolutionized how applications are deployed and managed. One of the critical components that enable the seamless operation of Kubernetes is its networking model. This blog will take a deep dive into Kubernetes Container Network Interface (CNI) networking, exploring its architecture, components, and popular CNI plugins.&#xA;What is CNI? The Container Network Interface (CNI) is a specification and library for writing plugins that configure network interfaces in Linux containers.</description>
+    </item>
+  </channel>
+</rss>

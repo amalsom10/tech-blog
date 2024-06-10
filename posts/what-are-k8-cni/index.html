@@ -1,0 +1,231 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Basic of Kubernetes CNI // Amal Soman</title>
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <meta charset="utf-8" />
+    <meta name="generator" content="Hugo 0.126.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="author" content="Amal Soman" />
+    <meta name="description" content="" />
+    <link rel="stylesheet" href="/css/main.min.5b1fcc8902588589c4767187402a3c29f8b8d7a6fdef6d9f8f77045bb0d14fee.css" />
+    
+
+    
+  
+
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Basic of Kubernetes CNI">
+  <meta name="twitter:description" content="Introduction Kubernetes, an open-source container orchestration platform, has revolutionized how applications are deployed and managed. One of the critical components that enable the seamless operation of Kubernetes is its networking model. This blog will take a deep dive into Kubernetes Container Network Interface (CNI) networking, exploring its architecture, components, and popular CNI plugins.
+What is CNI? The Container Network Interface (CNI) is a specification and library for writing plugins that configure network interfaces in Linux containers.">
+
+    <meta property="og:url" content="https://blog.amalsoman.com/posts/what-are-k8-cni/">
+  <meta property="og:site_name" content="Amal Soman">
+  <meta property="og:title" content="Basic of Kubernetes CNI">
+  <meta property="og:description" content="Introduction Kubernetes, an open-source container orchestration platform, has revolutionized how applications are deployed and managed. One of the critical components that enable the seamless operation of Kubernetes is its networking model. This blog will take a deep dive into Kubernetes Container Network Interface (CNI) networking, exploring its architecture, components, and popular CNI plugins.
+What is CNI? The Container Network Interface (CNI) is a specification and library for writing plugins that configure network interfaces in Linux containers.">
+  <meta property="og:locale" content="en_us">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2021-10-28T00:00:00+00:00">
+    <meta property="article:modified_time" content="2021-10-28T00:00:00+00:00">
+    <meta property="article:tag" content="Kubernetes">
+    <meta property="article:tag" content="Kubernetes-Cni">
+    <meta property="article:tag" content="Cni">
+
+
+  </head>
+  <body>
+    <header class="app-header">
+      <a href="https://blog.amalsoman.com/"><img class="app-header-avatar" src="/profile.png" alt="Amal Soman" /></a>
+      <span class="app-header-title">Amal Soman</span>
+      <nav class="app-header-menu">
+          <a class="app-header-menu-item" href="https://amalsoman.com/">Home</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/">Blog</a>
+             - 
+          
+          <a class="app-header-menu-item" href="/tags/">Tags</a>
+             - 
+          
+          <a class="app-header-menu-item" href="https://amalsoman.com/">About</a>
+      </nav>
+      <p>SRE/Devops | OSS Contributor</p>
+      <div class="app-header-social">
+        
+          <a href="https://github.com/amalsom10" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-github">
+  <title>Github</title>
+  <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+</svg>
+          </a>
+        
+          <a href="https://twitter.com/amalsom10" target="_blank" rel="noreferrer noopener me">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-twitter">
+  <title>Twitter</title>
+  <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+</svg>
+          </a>
+        
+      </div>
+    </header>
+    <main class="app-container">
+      
+  <article class="post">
+    <header class="post-header">
+      <h1 class ="post-title">Basic of Kubernetes CNI</h1>
+      <div class="post-meta">
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-calendar">
+  <title>calendar</title>
+  <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line>
+</svg>
+          Oct 28, 2021
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-clock">
+  <title>clock</title>
+  <circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline>
+</svg>
+          5 min read
+        </div>
+        <div>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tag">
+  <title>tag</title>
+  <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path><line x1="7" y1="7" x2="7.01" y2="7"></line>
+</svg>
+              <a class="tag" href="https://blog.amalsoman.com/tags/kubernetes/">Kubernetes</a>
+              <a class="tag" href="https://blog.amalsoman.com/tags/kubernetes-cni/">Kubernetes-Cni</a>
+              <a class="tag" href="https://blog.amalsoman.com/tags/cni/">Cni</a>
+        </div>
+      </div>
+    </header>
+    <div class="post-content">
+      <h2 id="introduction">Introduction</h2>
+<p>Kubernetes, an open-source container orchestration platform, has revolutionized how applications are deployed and managed. One of the critical components that enable the seamless operation of Kubernetes is its networking model. This blog will take a deep dive into Kubernetes Container Network Interface (CNI) networking, exploring its architecture, components, and popular CNI plugins.</p>
+<h2 id="what-is-cni">What is CNI?</h2>
+<p>The Container Network Interface (CNI) is a specification and library for writing plugins that configure network interfaces in Linux containers. Initially developed by CoreOS, CNI is now a project under the Cloud Native Computing Foundation (CNCF). It aims to provide a common interface between the network configuration plugins and container runtimes like Kubernetes.</p>
+<h2 id="kubernetes-networking-model">Kubernetes Networking Model</h2>
+<p>Kubernetes networking follows a flat network structure where every pod can communicate with every other pod without NAT (Network Address Translation). This model is based on four key requirements:</p>
+<ol>
+<li><strong>Pod-to-Pod Communication</strong>: Pods in a cluster should be able to communicate with each other directly.</li>
+<li><strong>Pod-to-Service Communication</strong>: Pods should be able to communicate with services, which may be backed by multiple pods.</li>
+<li><strong>External-to-Internal Communication</strong>: External clients should be able to communicate with services within the cluster.</li>
+<li><strong>Internal-to-External Communication</strong>: Pods should be able to communicate with external services outside the cluster.</li>
+</ol>
+<h2 id="cni-in-kubernetes">CNI in Kubernetes</h2>
+<p>Kubernetes uses CNI to manage network resources for pods. When a pod is created, Kubernetes delegates the network setup to a CNI plugin, which is responsible for configuring the pod&rsquo;s network interface. The CNI plugin ensures that the pod gets a unique IP address and can communicate with other pods and services within the cluster.</p>
+<h3 id="key-components">Key Components</h3>
+<ul>
+<li><strong>CNI Plugin</strong>: A binary that conforms to the CNI specification. It is responsible for setting up and tearing down network interfaces in containers.</li>
+<li><strong>CNI Configuration File</strong>: A JSON file that specifies which CNI plugin to use and any necessary parameters for the plugin.</li>
+<li><strong>CNI IPAM (IP Address Management) Plugin</strong>: Handles IP address allocation and deallocation for pod interfaces.</li>
+</ul>
+<h2 id="popular-cni-plugins">Popular CNI Plugins</h2>
+<p>Several CNI plugins are available, each offering different features and capabilities. Here are some of the most popular ones:</p>
+<h3 id="1-flannel">1. Flannel</h3>
+<p>Flannel is a simple and easy-to-configure CNI plugin designed for Kubernetes networking. It uses a flat network model with a unique subnet assigned to each host. Flannel supports multiple backend implementations, such as VXLAN, host-gw, and AWS VPC.</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Simple to set up and use.</li>
+<li>Supports multiple backends.</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Limited features compared to other plugins.</li>
+</ul>
+<h3 id="2-calico">2. Calico</h3>
+<p>Calico is a powerful CNI plugin that provides networking and network security solutions for Kubernetes. It uses BGP (Border Gateway Protocol) for routing and supports network policies for fine-grained control over pod communication.</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>High-performance and scalable.</li>
+<li>Advanced network policy support.</li>
+<li>Supports BGP and IP-in-IP encapsulation.</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>More complex to configure than Flannel.</li>
+</ul>
+<h3 id="3-weave-net">3. Weave Net</h3>
+<p>Weave Net is another popular CNI plugin that provides a simple and flexible networking solution for Kubernetes. It creates a mesh network of all the nodes in the cluster and supports encryption, network segmentation, and network policy enforcement.</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>Easy to set up and use.</li>
+<li>Supports encrypted communication.</li>
+<li>Network policy enforcement.</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>Performance may not be as high as Calico in large clusters.</li>
+</ul>
+<h3 id="4-cilium">4. Cilium</h3>
+<p>Cilium is an advanced CNI plugin that uses eBPF (extended Berkeley Packet Filter) for high-performance networking and security. It provides L3/L4 and L7 network policies and integrates well with service meshes like Istio.</p>
+<p><strong>Pros</strong>:</p>
+<ul>
+<li>High-performance due to eBPF.</li>
+<li>Advanced network and security policies.</li>
+<li>Integration with service meshes.</li>
+</ul>
+<p><strong>Cons</strong>:</p>
+<ul>
+<li>More complex to set up and manage.</li>
+</ul>
+<h2 id="how-cni-works-in-kubernetes">How CNI Works in Kubernetes</h2>
+<p>When a pod is scheduled to run on a node, the following steps occur:</p>
+<ol>
+<li><strong>Pod Creation</strong>: The Kubernetes API server creates a new pod object.</li>
+<li><strong>Node Assignment</strong>: The Kubernetes scheduler assigns the pod to a node.</li>
+<li><strong>CNI Plugin Invocation</strong>: The kubelet on the assigned node invokes the CNI plugin to set up the pod&rsquo;s network interface.</li>
+<li><strong>Network Interface Configuration</strong>: The CNI plugin configures the network interface, assigns an IP address, and sets up the necessary routing.</li>
+<li><strong>Pod Communication</strong>: The pod can now communicate with other pods and services in the cluster.</li>
+</ol>
+<h2 id="configuring-cni-in-kubernetes">Configuring CNI in Kubernetes</h2>
+<p>To configure a CNI plugin in Kubernetes, you need to:</p>
+<ol>
+<li><strong>Install the CNI Plugin</strong>: Follow the installation instructions for the chosen CNI plugin.</li>
+<li><strong>Create the CNI Configuration File</strong>: This file typically resides in <code>/etc/cni/net.d</code> and specifies the CNI plugin to use and its parameters.</li>
+<li><strong>Configure the Kubernetes Cluster</strong>: Ensure the kubelet is configured to use the CNI plugin by setting the <code>--network-plugin=cni</code> flag.</li>
+</ol>
+<h3 id="example-configuring-flannel">Example: Configuring Flannel</h3>
+<ol>
+<li><strong>Install Flannel</strong>:
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>kubectl apply -f https://raw.githubusercontent.com/coreos/flannel/master/Documentation/kube-flannel.yml
+</span></span></code></pre></div></li>
+<li><strong>Create the CNI Configuration File</strong>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;flannel&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;type&#34;</span>: <span style="color:#e6db74">&#34;flannel&#34;</span>,
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&#34;delegate&#34;</span>: {
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;isDefaultGateway&#34;</span>: <span style="color:#66d9ef">true</span>
+</span></span><span style="display:flex;"><span>  }
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><ol start="3">
+<li><strong>Configure the Kubernetes Cluster: Ensure the kubelet is configured to use CNI</strong>:</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>KUBELET_NETWORK_ARGS<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin&#34;</span>
+</span></span></code></pre></div><h2 id="conclusion">Conclusion</h2>
+<p>Kubernetes CNI networking is a crucial aspect of running a Kubernetes cluster. Understanding how CNI works and the various plugins available can help you choose the right networking solution for your needs. Whether you need a simple setup with Flannel, advanced network policies with Calico, or high-performance networking with Cilium, the CNI ecosystem provides a range of options to suit different use cases.</p>
+<p>By configuring and managing CNI plugins effectively, you can ensure robust and scalable network connectivity for your Kubernetes applications.</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://kubernetes.io/docs/">Kubernetes Documentation</a></li>
+<li><a href="https://github.com/containernetworking/cni">CNI GitHub Repository</a></li>
+<li><a href="https://github.com/coreos/flannel">Flannel GitHub Repository</a></li>
+<li><a href="https://docs.projectcalico.org/">Calico Documentation</a></li>
+<li><a href="https://www.weave.works/docs/net/latest/overview/">Weave Net Documentation</a></li>
+<li><a href="https://docs.cilium.io/en/stable/">Cilium Documentation</a></li>
+</ul>
+
+    </div>
+    <div class="post-footer">
+      
+    </div>
+  </article>
+
+    </main>
+  </body>
+</html>

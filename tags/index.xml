@@ -6,8 +6,29 @@
     <description>Recent content in Tags on Amal Soman</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Apr 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 28 Oct 2021 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://blog.amalsoman.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Cni</title>
+      <link>https://blog.amalsoman.com/tags/cni/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/cni/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes</title>
+      <link>https://blog.amalsoman.com/tags/kubernetes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Kubernetes-Cni</title>
+      <link>https://blog.amalsoman.com/tags/kubernetes-cni/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/kubernetes-cni/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Configuration</title>
       <link>https://blog.amalsoman.com/tags/configuration/</link>
@@ -69,6 +90,34 @@
       <link>https://blog.amalsoman.com/tags/themes/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>https://blog.amalsoman.com/tags/themes/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Debugging</title>
+      <link>https://blog.amalsoman.com/tags/debugging/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/debugging/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Linnux</title>
+      <link>https://blog.amalsoman.com/tags/linnux/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/linnux/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Network</title>
+      <link>https://blog.amalsoman.com/tags/network/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/network/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Troubleshooting</title>
+      <link>https://blog.amalsoman.com/tags/troubleshooting/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>https://blog.amalsoman.com/tags/troubleshooting/</guid>
       <description></description>
     </item>
   </channel>
